@@ -1,0 +1,42 @@
+<table mat-table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="Latitude">
+      <th mat-header-cell *matHeaderCellDef>Latitude</th>
+      <td mat-cell *matCellDef="let row">{{ row.latitude }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Longitude">
+      <th mat-header-cell *matHeaderCellDef>Longitude</th>
+      <td mat-cell *matCellDef="let row">{{ row.longitude }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="State">
+      <th mat-header-cell *matHeaderCellDef>State</th>
+      <td mat-cell *matCellDef="let row">{{ row.state }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Temperature">
+      <th mat-header-cell *matHeaderCellDef>Temperature</th>
+      <td mat-cell *matCellDef="let row">{{ row.current_weather.temperature }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Wind Speed">
+      <th mat-header-cell *matHeaderCellDef>Wind Speed</th>
+      <td mat-cell *matCellDef="let row">{{ row.current_weather.windspeed }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Wind Direction">
+      <th mat-header-cell *matHeaderCellDef>Wind Direction</th>
+      <td mat-cell *matCellDef="let row">{{ row.current_weather.winddirection }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="Date">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let row">{{ row.timeStamp }}</td>
+    </ng-container>    
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+  

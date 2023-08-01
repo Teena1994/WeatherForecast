@@ -1,0 +1,47 @@
+<div class="main">
+<button *ngIf="!showTable" class="custom-button" (click)="showTable = !showTable">Get Search History</button>
+<button  *ngIf="showTable" class="custom-button" (click)="showTable = !showTable">Back</button>
+
+<div style="padding-top:3%"  *ngIf="showTable">
+  <app-search-history></app-search-history>
+</div>
+
+<div *ngIf="!showTable" class="container">
+  <div class="content">
+    <h2>Search Weather by State:</h2>
+    <select id="dropdown" [(ngModel)]="stateName" (change)="getDataBystateName()">
+      <option *ngFor="let option of stateNameArray" [value]="option">{{ option }}</option>
+    </select>
+    <div *ngIf="stateName" class="selected-option">
+      <p *ngIf="stateDetails">Current Weather details for {{stateDetails.capital}}, {{ stateName }}, ({{stateDetails.latitude}},
+        {{stateDetails.longitude}})</p>
+      <p *ngIf="weatherData">Temperature: {{ weatherData.temperature }} °C</p>
+      <p *ngIf="weatherData">Wind Direction: {{ weatherData.winddirection }}°</p>
+      <p *ngIf="weatherData">Wind Speed: {{ weatherData.windspeed }}m/s</p>
+    </div>
+  </div>
+  <div style="padding: 2%"></div>
+  <div class="content">
+    <h2>Search Weather by Coordinates:</h2>
+    <div class="col-md-4">
+      <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+        <div>
+          <label for="latitude"> Latitude</label>
+          <input id="latitude" type="number" formControlName="latitude">
+        </div>
+        <div style="padding-bottom: 2%;">
+          <label for="longitude">Longitude</label>
+          <input id="longitude" type="number" formControlName="longitude">
+        </div>
+        <button class="button" type="submit">Get Weather Update</button>
+      </form>
+    </div>
+    <div *ngIf="displayCoordinateData" class="selected-option">
+      <p>Current Weather details</p>
+      <p *ngIf="weatherData">Temperature: {{ weatherData.temperature }} °C</p>
+      <p *ngIf="weatherData">Wind Direction: {{ weatherData.winddirection }}°</p>
+      <p *ngIf="weatherData">Wind Speed: {{ weatherData.windspeed }}m/s</p>
+    </div>
+  </div>
+</div>
+</div>
