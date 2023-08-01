@@ -12,3 +12,7 @@ To Run Project
 4. go to client folder
 5. ng serve
 6. update in .env file mongo uri. by default connected to localhost.
+
+=======================================================
+
+Import Marsh McLennan.postman_collection.json in post man to test backend api's
