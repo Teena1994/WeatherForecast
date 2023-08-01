@@ -1,13 +1,14 @@
 Mongo DB Set Up
 =========================================
-database : MML
-collection name : state_details
-import data from MML.state_details.json to the collection
+1. Database Name : MML
+2. Collection name : state_details
+3. Import data from 'MML.state_details.json' file  to the collection 'state_details'
 
 To Run Project
 =========================================
 1. Go to app folder
-2. node server.js
-3. go to client folder
-4. ng serve
-5. update in .env file mongo uri
+2. npm install
+3. node server.js
+4. go to client folder
+5. ng serve
+6. update in .env file mongo uri. by default connected to localhost.
